@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 
 const states = [
   { id: "AL", name: "Alabama" },
@@ -57,30 +58,56 @@ function App() {
     const stateElement = document.getElementById(stateId);
     if (stateElement) {
       stateElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      highlightState(stateId);
     }
   };
-  
+
+  const highlightState = (stateId: string): void => {
+    const listItems = document.querySelectorAll<HTMLLIElement>(".sidebar li");
+    listItems.forEach((item) => {
+      item.classList.toggle("highlighted", item.id === stateId);
+    });
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            highlightState(entry.target.id);
+          }
+        });
+      },
+      { root: document.querySelector(".sidebar"), threshold: 0.5 }
+    );
+
+    const stateElements = document.querySelectorAll<HTMLLIElement>(".sidebar li");
+    stateElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main>
-      {/* Navigation Bar */}
       <section className="navbar">
         <h1>Navigation Bar</h1>
       </section>
-
-      {/* Main Content */}
       <section className="content-container">
-        {/* Sidebar */}
         <aside className="sidebar">
           <h2>States</h2>
           <ul>
             {states.map((state) => (
-              <li key={state.id} id={state.id}>
+              <li
+                key={state.id}
+                id={state.id}
+                onClick={() => handleStateClick(state.id)}
+              >
                 {state.name}
               </li>
             ))}
           </ul>
         </aside>
+
 
         {/* Map container */}
         <div className="map-container">

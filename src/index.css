@@ -7,6 +7,7 @@ body, html {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  font-family: Arial, sans-serif; /* Ensure consistent font */
 }
 
 /* Entire App Container */
@@ -54,6 +55,21 @@ body, html {
   top: 50px; /* Sticks below the navbar */
   height: calc(100vh - 50px); /* Full height minus navbar */
   border-right: 1px solid #1f2937;
+  scrollbar-width: thin; /* Firefox scrollbar */
+  scrollbar-color: #4b5563 #1f2937; /* Custom scrollbar colors */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px; /* For Chrome, Edge, and Safari */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #1f2937;
 }
 
 /* Map Container */
@@ -72,4 +88,49 @@ body, html {
   max-width: 100%;
   max-height: 100%;
   background-color: transparent;
+}
+
+/* Sidebar List Items */
+.sidebar li {
+  padding: 8px;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.3s ease, font-weight 0.3s ease;
+}
+
+.sidebar li:hover {
+  background-color: #1f2937;
+}
+
+.sidebar li.highlighted {
+  background-color: #ffcc00;
+  font-weight: bold;
+  color: #000; /* Ensure text contrast */
+}
+
+/* State Styling */
+.state {
+  fill: #d3d3d3;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
+
+.state:hover {
+  fill: #ffcc00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Adjust sidebar width */
+  }
+
+  .navbar {
+    height: 40px;
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .map-container {
+    padding: 5px; /* Reduce padding for smaller screens */
+  }
 }
