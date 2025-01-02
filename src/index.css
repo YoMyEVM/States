@@ -78,7 +78,8 @@ body, html {
 /* Map Container */
 .map-container {
   flex: 1;
-  padding: 10px;
+  padding: px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
