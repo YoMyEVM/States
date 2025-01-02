@@ -2,7 +2,7 @@ import React from 'react';
 
 interface StateCardProps {
   title: string;
-  description: string;
+  description: string; // Admission date
   onClick?: () => void;
   isHighlighted?: boolean;
 }
