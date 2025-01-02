@@ -1,9 +1,21 @@
+/* Universal Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a; /* Dark background */
+  color: #ffffff; /* Ensure text is visible */
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 /* Entire App Container */
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  background-color: #0f172a; /* Match background to ensure no gaps */
 }
 
 /* Navigation Bar */
@@ -19,6 +31,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Main Content Container */
@@ -27,6 +40,7 @@
   flex: 1;
   margin-top: 50px; /* Push down to avoid navbar overlap */
   overflow: hidden;
+  background-color: #0f172a; /* Ensure consistent background */
 }
 
 /* Sidebar */
@@ -39,6 +53,7 @@
   position: sticky;
   top: 50px; /* Sticks below the navbar */
   height: calc(100vh - 50px); /* Full height minus navbar */
+  border-right: 1px solid #1f2937;
 }
 
 /* Map Container */
@@ -49,10 +64,12 @@
   justify-content: center;
   align-items: center;
   overflow: auto;
+  background-color: #0f172a; /* Ensure no white gaps around the map */
 }
 
 /* SVG Styling */
 .map-container svg {
   max-width: 100%;
   max-height: 100%;
+  background-color: transparent;
 }
