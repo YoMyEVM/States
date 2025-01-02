@@ -31,7 +31,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5); /* Adjusted shadow direction */
 }
 
@@ -58,6 +58,7 @@ body, html {
   border-right: 1px solid #1f2937;
   scrollbar-width: thin; /* Firefox scrollbar */
   scrollbar-color: #4b5563 #1f2937; /* Custom scrollbar colors */
+  z-index: 500;
 
 
 }
