@@ -22,7 +22,7 @@ body, html {
 /* Navigation Bar */
 .navbar {
   position: fixed;
-  top: 0;
+  bottom: 0; /* Changed from top: 0; to bottom: 0; */
   left: 0;
   width: 100%;
   height: 50px;
@@ -32,8 +32,9 @@ body, html {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5); /* Adjusted shadow direction */
 }
+
 
 /* Main Content Container */
 .content-container {
@@ -57,6 +58,8 @@ body, html {
   border-right: 1px solid #1f2937;
   scrollbar-width: thin; /* Firefox scrollbar */
   scrollbar-color: #4b5563 #1f2937; /* Custom scrollbar colors */
+
+
 }
 
 .sidebar::-webkit-scrollbar {
@@ -103,7 +106,7 @@ body, html {
 }
 
 .sidebar li.highlighted {
-  background-color: #ffcc00;
+  background-color: #a785ff;
   font-weight: bold;
   color: #000; /* Ensure text contrast */
 }
@@ -134,4 +137,24 @@ body, html {
   .map-container {
     padding: 5px; /* Reduce padding for smaller screens */
   }
+}
+
+/* State Card Styling */
+.state-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  margin-top: 3%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  
+  /* Prevent being hidden behind the navbar */
+  scroll-margin-top: 100px; /* 50px navbar height + 10px buffer */
+}
+
+.state-card.highlighted {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
 }

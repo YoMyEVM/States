@@ -1,3 +1,5 @@
+// src/components/StateCard.tsx
+
 import React from 'react';
 
 interface StateCardProps {
