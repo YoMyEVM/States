@@ -116,7 +116,8 @@ body, html {
 }
 
 .state:hover {
-  fill: #ffcc00;
+  fill: #ffcc00; /* Highlight color */
+  cursor: pointer;
 }
 
 /* Responsive Design */
